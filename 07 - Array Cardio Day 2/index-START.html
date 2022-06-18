@@ -26,15 +26,38 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+
+    let isAdult = people.some((person) => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+    });
+
+    console.log(isAdult);
+
     // Array.prototype.every() // is everyone 19 or older?
+
+    let isEveryoneAdult = people.every((person) => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+    });
+
+    console.log(isEveryoneAdult);
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
 
+    function findCommentByID(ID) {return comments.find(arrayItem => arrayItem.id === ID).text};
+
+    console.log(findCommentByID(823423));
+
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+
+    let indexDelete = comments.findIndex((index) => index.id === 823423);
+    comments.splice(indexDelete,1);
+    console.table(comments);
 
   </script>
 </body>
